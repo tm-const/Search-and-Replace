@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search and Replace</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    label {
+      font-weight: bold;
+    }
+    textarea {
+      width: 100%;
+      height: 150px;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Search and Replace</h2>
+    <form>
+      <div>
+        <label for="text">Text:</label>
+        <textarea id="text" placeholder="Enter your text here"></textarea>
+      </div>
+      <div>
+        <label for="search">Search:</label>
+        <input type="text" id="search" placeholder="Enter the search term">
+      </div>
+      <div>
+        <label for="replace">Replace:</label>
+        <input type="text" id="replace" placeholder="Enter the replacement term">
+      </div>
+      <button type="button" onclick="searchAndReplace()">Search & Replace</button>
+    </form>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    function searchAndReplace() {
+      var text = document.getElementById('text').value;
+      var search = document.getElementById('search').value;
+      var replace = document.getElementById('replace').value;
+      var replacedText = text.replace(new RegExp(search, 'g'), replace);
+      document.getElementById('output').innerHTML = "<pre>" + replacedText + "</pre>";
+    }
+  </script>
+</body>
+</html>
